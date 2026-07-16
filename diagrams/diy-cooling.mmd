@@ -1,0 +1,19 @@
+flowchart TB
+    room["Room air"] --> filter["120 mm magnetic dust filter"]
+    filter --> fan["120 mm static pressure fan"]
+    fan --> chamber["Sealed plenum chamber"]
+    chamber --> intake["ThinkPad bottom intake"]
+    intake --> internal["Internal blower fan and heatsink"]
+    internal --> exhaust["Side exhaust vent facing upward"]
+    exhaust --> hot["Hot air exits above laptop"]
+
+    gasket["EPDM foam gasket"] -. seals air gaps .- chamber
+    battery["Battery charge threshold: 45-50%"] -. protects .- laptop["Closed vertical ThinkPad"]
+    laptop -. receives filtered air .- intake
+
+    classDef air fill:#dff4ff,stroke:#2b7a9b,color:#123;
+    classDef thermal fill:#ffe8d6,stroke:#b45309,color:#321;
+    classDef control fill:#e9f8e7,stroke:#3f7d20,color:#132;
+    class room,filter,fan,chamber,intake,internal air;
+    class exhaust,hot thermal;
+    class gasket,battery,laptop control;
