@@ -8,6 +8,8 @@ The target design is:
 
 Diagram source: [`../diagrams/hyper-v-nat.mmd`](../diagrams/hyper-v-nat.mmd)
 
+![Hyper-V NAT architecture](assets/images/hyper-v-nat.svg)
+
 ```text
 Windows 11 Pro Host
     |

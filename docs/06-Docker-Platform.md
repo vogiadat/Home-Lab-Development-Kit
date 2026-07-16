@@ -10,6 +10,8 @@ Docker is the main application platform for v1.0. Instead of creating a separate
 
 Diagram source: [`../diagrams/docker-platform.mmd`](../diagrams/docker-platform.mmd)
 
+![Docker platform layout](assets/images/docker-platform.svg)
+
 ```text
 /opt/homelab
 ├── compose.yaml

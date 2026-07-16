@@ -79,6 +79,8 @@ The recommended cooling concept is a vertical filtered plenum chamber.
 
 Diagram source: [`../diagrams/diy-cooling.mmd`](../diagrams/diy-cooling.mmd)
 
+![DIY cooling airflow](assets/images/diy-cooling.svg)
+
 ```text
 Room air
   |

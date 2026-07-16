@@ -10,6 +10,8 @@ Tailscale is the remote access boundary for v1.0. RDP, SSH, and lab services sho
 
 Diagram source: [`../diagrams/tailscale-subnet-router.mmd`](../diagrams/tailscale-subnet-router.mmd)
 
+![Tailscale subnet router architecture](assets/images/tailscale-subnet-router.svg)
+
 ```text
 Remote device
   -> Tailscale mesh

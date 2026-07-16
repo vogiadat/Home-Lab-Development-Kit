@@ -84,9 +84,11 @@ The deployment scripts are designed to be modular and repeatable. The project in
 
 ## Build PDF
 
-Install Pandoc and a XeLaTeX distribution, then run:
+Install Pandoc, XeLaTeX, Node.js, and Mermaid CLI, then run:
 
 ```bash
+npm install -g @mermaid-js/mermaid-cli
+./scripts/render-diagrams.sh
 ./scripts/build-pdf.sh
 ```
 

@@ -5,6 +5,10 @@ release/*.epub
 release/*.zip
 release/Home-Lab-Development-Kit-v*.md
 
+# Rendered diagrams
+assets/images/*.svg
+assets/images/*.png
+
 # Logs
 logs/
 *.log

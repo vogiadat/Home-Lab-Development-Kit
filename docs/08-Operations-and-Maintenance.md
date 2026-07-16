@@ -10,6 +10,8 @@ The system is small, but it still needs regular checks. Most failures in a lapto
 
 Diagram source: [`../diagrams/operations-flow.mmd`](../diagrams/operations-flow.mmd)
 
+![Operations and maintenance flow](assets/images/operations-flow.svg)
+
 | Area | Practice |
 | --- | --- |
 | Monitoring | Run a quick health check weekly |
