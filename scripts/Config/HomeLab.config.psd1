@@ -20,5 +20,7 @@
         MinimumMemory = 1GB
         MaximumMemory = 6GB
         VHDSize = 100GB
+        VHDName = 'VM-UBUNTU.vhdx'
+        IsoPath = 'D:\HyperV\ISO\ubuntu-server.iso'
     }
 }

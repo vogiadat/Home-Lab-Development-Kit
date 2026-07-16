@@ -72,6 +72,9 @@ switch ($Stage) {
         Invoke-Script -RelativePath 'Modules/02-HyperV/New-LabNat.ps1' -ArgumentList @($Config)
         Write-Warning 'If Hyper-V was just enabled for the first time, restart Windows before creating VMs.'
     }
+    'VM' {
+        Invoke-Script -RelativePath 'Modules/03-VM/New-UbuntuVM.ps1' -ArgumentList @($Config)
+    }
     default {
         Write-Warning "Stage '$Stage' is reserved for a future implementation sprint."
     }

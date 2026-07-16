@@ -1,0 +1,21 @@
+flowchart TB
+    config["HomeLab.config.psd1\nUbuntuVM settings"] --> deploy["Deploy.ps1 -Stage VM"]
+    deploy --> script["New-UbuntuVM.ps1"]
+    script --> switch["Validate LabInternal switch"]
+    script --> iso["Validate Ubuntu ISO"]
+    script --> vhd["Create dynamic VHDX"]
+    script --> vm["Create Generation 2 VM"]
+    vm --> resources["Set vCPU and Dynamic Memory"]
+    vm --> firmware["Set UEFI Secure Boot template"]
+    vm --> dvd["Attach installer ISO"]
+    dvd --> boot["Boot installer"]
+    boot --> install["Install Ubuntu Server"]
+    install --> staticip["Configure 192.168.100.10/24"]
+    staticip --> ssh["Verify SSH from Windows host"]
+
+    classDef script fill:#e8f1ff,stroke:#2563eb,color:#10203f;
+    classDef vm fill:#eef8e8,stroke:#3f7d20,color:#132;
+    classDef verify fill:#fff7df,stroke:#b7791f,color:#321;
+    class config,deploy,script script;
+    class vhd,vm,resources,firmware,dvd,boot,install vm;
+    class switch,iso,staticip,ssh verify;

@@ -47,3 +47,11 @@ Create Hyper-V folders, enable Hyper-V, create the internal switch, assign the h
 ```
 
 If Hyper-V is enabled for the first time, restart Windows before creating VMs.
+
+Create the Ubuntu Server VM from the configured ISO:
+
+```powershell
+.\Deploy.ps1 -Stage VM
+```
+
+Before running this stage, download the Ubuntu Server ISO and make sure `UbuntuVM.IsoPath` in `Config/HomeLab.config.psd1` points to the correct file.

@@ -9,6 +9,7 @@ Planned diagrams:
 - `diy-cooling.mmd`
 - `hyper-v-nat.drawio`
 - `hyper-v-nat.mmd`
+- `ubuntu-vm.mmd`
 - `tailscale-subnet-router.drawio`
 - `operations-flow.drawio`
 
