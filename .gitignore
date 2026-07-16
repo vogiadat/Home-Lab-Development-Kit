@@ -1,0 +1,21 @@
+# Generated releases
+release/*.pdf
+release/*.docx
+release/*.epub
+release/*.zip
+
+# Logs
+logs/
+*.log
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Editor files
+.vscode/
+.idea/
+
+# PowerShell local state
+*.ps1xml
+*.psd1.bak

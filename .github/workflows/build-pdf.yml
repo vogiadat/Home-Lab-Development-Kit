@@ -1,0 +1,51 @@
+name: Build PDF
+
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - 'docs/**'
+      - '.github/workflows/build-pdf.yml'
+
+jobs:
+  build-pdf:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Install Pandoc and LaTeX
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y pandoc texlive-xetex texlive-fonts-recommended texlive-latex-recommended
+
+      - name: Build combined Markdown
+        run: |
+          mkdir -p release
+          cat \
+            docs/00-Bill-of-Materials.md \
+            docs/01-System-Overview.md \
+            docs/02-DIY-Cooling.md \
+            docs/03-Windows-Host-Optimization.md \
+            docs/04-Hyper-V-Deployment.md \
+            docs/05-Ubuntu-Server.md \
+            docs/06-Docker-Platform.md \
+            docs/07-Tailscale-Remote-Access.md \
+            docs/08-Operations-and-Maintenance.md \
+            docs/Appendix.md \
+            > release/Home-Lab-Development-Kit-v1.0.md
+
+      - name: Build PDF
+        run: |
+          pandoc release/Home-Lab-Development-Kit-v1.0.md \
+            --pdf-engine=xelatex \
+            --toc \
+            --number-sections \
+            -o release/Home-Lab-Development-Kit-v1.0.pdf
+
+      - name: Upload PDF artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: Home-Lab-Development-Kit-PDF
+          path: release/Home-Lab-Development-Kit-v1.0.pdf
