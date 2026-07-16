@@ -70,3 +70,15 @@ Print Tailscale subnet router guidance and optionally restrict RDP firewall rule
 .\Deploy.ps1 -Stage Tailscale
 .\Deploy.ps1 -Stage Tailscale -EnableRemoteDesktop
 ```
+
+Run host and VM monitoring checks:
+
+```powershell
+.\Deploy.ps1 -Stage Monitoring
+```
+
+Export the Ubuntu VM to the configured backup folder:
+
+```powershell
+.\Deploy.ps1 -Stage Backup
+```

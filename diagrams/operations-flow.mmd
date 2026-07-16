@@ -1,0 +1,23 @@
+flowchart TB
+    weekly["Weekly health check"] --> monitor["Deploy.ps1 -Stage Monitoring"]
+    monitor --> disk["Check disk space"]
+    monitor --> vm["Check VM state"]
+    monitor --> net["Check NAT / lab adapter"]
+    weekly --> ubuntu["Ubuntu checks\nSSH, Docker, df -h"]
+
+    monthly["Monthly maintenance"] --> filter["Clean dust filter"]
+    monthly --> updates["Planned update window"]
+    monthly --> backup["Deploy.ps1 -Stage Backup"]
+    backup --> export["Export VM-UBUNTU"]
+    export --> verify["Verify backup exists"]
+
+    updates --> restart["Restart host / VM if needed"]
+    restart --> remote["Verify Tailscale remote access"]
+    remote --> services["Verify Docker services"]
+
+    classDef routine fill:#e8f1ff,stroke:#2563eb,color:#10203f;
+    classDef check fill:#eef8e8,stroke:#3f7d20,color:#132;
+    classDef backup fill:#fff7df,stroke:#b7791f,color:#321;
+    class weekly,monthly routine;
+    class monitor,disk,vm,net,ubuntu,filter,remote,services check;
+    class backup,export,verify,updates,restart backup;

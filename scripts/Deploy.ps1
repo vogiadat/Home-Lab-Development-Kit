@@ -85,6 +85,13 @@ switch ($Stage) {
 
         Invoke-Script -RelativePath 'Modules/04-Tailscale/Show-SubnetRouterCommand.ps1' -ArgumentList @($Config)
     }
+    'Monitoring' {
+        Invoke-Script -RelativePath 'Modules/05-Monitoring/Get-HostHealth.ps1' -ArgumentList @($Config)
+        Invoke-Script -RelativePath 'Modules/05-Monitoring/Get-VMHealth.ps1'
+    }
+    'Backup' {
+        Invoke-Script -RelativePath 'Modules/06-Backup/Export-UbuntuVM.ps1' -ArgumentList @($Config)
+    }
     default {
         Write-Warning "Stage '$Stage' is reserved for a future implementation sprint."
     }

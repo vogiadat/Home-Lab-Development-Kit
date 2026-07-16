@@ -14,6 +14,7 @@ Planned diagrams:
 - `tailscale-subnet-router.drawio`
 - `tailscale-subnet-router.mmd`
 - `operations-flow.drawio`
+- `operations-flow.mmd`
 
 Rendered images should be exported to `assets/images/`.
 
