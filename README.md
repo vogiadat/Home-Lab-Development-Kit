@@ -82,6 +82,20 @@ The deployment scripts are designed to be modular and repeatable. The project in
 - [ ] Add PDF build pipeline
 - [ ] Publish v1.0 release artifact
 
+## Build PDF
+
+Install Pandoc and a XeLaTeX distribution, then run:
+
+```bash
+./scripts/build-pdf.sh
+```
+
+The generated PDF is written to:
+
+```text
+release/Home-Lab-Development-Kit-v1.0.pdf
+```
+
 ## License
 
 This project is licensed under the MIT License.

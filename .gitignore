@@ -3,6 +3,7 @@ release/*.pdf
 release/*.docx
 release/*.epub
 release/*.zip
+release/Home-Lab-Development-Kit-v*.md
 
 # Logs
 logs/

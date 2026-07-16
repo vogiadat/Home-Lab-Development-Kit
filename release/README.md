@@ -8,3 +8,9 @@ Examples:
 - `Home-Lab-Development-Kit-v1.0.zip`
 
 Generated binaries are ignored by default unless explicitly included for a tagged release.
+
+Build locally with:
+
+```bash
+../scripts/build-pdf.sh
+```

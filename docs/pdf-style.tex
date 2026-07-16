@@ -1,0 +1,39 @@
+\usepackage{fancyhdr}
+\usepackage{titlesec}
+\usepackage{xcolor}
+\usepackage{framed}
+\usepackage{fvextra}
+
+\definecolor{HomeLabBlue}{HTML}{1F5C99}
+\definecolor{HomeLabGray}{HTML}{4B5563}
+
+\pagestyle{fancy}
+\fancyhf{}
+\lhead{\textcolor{HomeLabGray}{Home Lab Development Kit}}
+\rhead{\textcolor{HomeLabGray}{Deployment Manual v1.0}}
+\cfoot{\thepage}
+\renewcommand{\headrulewidth}{0.4pt}
+
+\titleformat{\chapter}
+  {\normalfont\huge\bfseries\color{HomeLabBlue}}
+  {\thechapter}
+  {1em}
+  {}
+
+\titleformat{\section}
+  {\normalfont\Large\bfseries\color{HomeLabBlue}}
+  {\thesection}
+  {1em}
+  {}
+
+\titleformat{\subsection}
+  {\normalfont\large\bfseries\color{HomeLabGray}}
+  {\thesubsection}
+  {1em}
+  {}
+
+\DefineVerbatimEnvironment{Highlighting}{Verbatim}{
+  breaklines,
+  breakanywhere,
+  commandchars=\\\{\}
+}
