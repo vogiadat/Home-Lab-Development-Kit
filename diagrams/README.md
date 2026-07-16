@@ -8,6 +8,7 @@ Planned diagrams:
 - `diy-cooling.drawio`
 - `diy-cooling.mmd`
 - `hyper-v-nat.drawio`
+- `hyper-v-nat.mmd`
 - `tailscale-subnet-router.drawio`
 - `operations-flow.drawio`
 

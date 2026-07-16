@@ -24,10 +24,16 @@ if (-not (Test-IsAdministrator)) {
     Write-Warning 'Run PowerShell as Administrator for deployment stages that change host configuration.'
 }
 
+if ($Stage -ne 'Check' -and -not (Test-IsAdministrator)) {
+    throw "Stage '$Stage' must be run from an elevated PowerShell session."
+}
+
 function Invoke-Script {
     param(
         [Parameter(Mandatory)]
-        [string]$RelativePath
+        [string]$RelativePath,
+
+        [object[]]$ArgumentList = @()
     )
 
     $ScriptPath = Join-Path $PSScriptRoot $RelativePath
@@ -37,7 +43,7 @@ function Invoke-Script {
     }
 
     Write-Host "Running $RelativePath"
-    & $ScriptPath
+    & $ScriptPath @ArgumentList
 }
 
 switch ($Stage) {
@@ -57,6 +63,14 @@ switch ($Stage) {
         else {
             Write-Host 'Remote Desktop was not enabled. Re-run with -EnableRemoteDesktop if needed.'
         }
+    }
+    'HyperV' {
+        Invoke-Script -RelativePath 'Modules/02-HyperV/New-HyperVFolders.ps1' -ArgumentList @($Config)
+        Invoke-Script -RelativePath 'Modules/02-HyperV/Enable-HyperVFeature.ps1'
+        Invoke-Script -RelativePath 'Modules/02-HyperV/New-InternalSwitch.ps1' -ArgumentList @($Config)
+        Invoke-Script -RelativePath 'Modules/02-HyperV/Set-InternalSwitchAddress.ps1' -ArgumentList @($Config)
+        Invoke-Script -RelativePath 'Modules/02-HyperV/New-LabNat.ps1' -ArgumentList @($Config)
+        Write-Warning 'If Hyper-V was just enabled for the first time, restart Windows before creating VMs.'
     }
     default {
         Write-Warning "Stage '$Stage' is reserved for a future implementation sprint."

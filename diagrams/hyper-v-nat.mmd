@@ -1,0 +1,20 @@
+flowchart TB
+    internet["Internet"] --> router["Home router / LAN"]
+    router --> hostnic["Windows host Wi-Fi or Ethernet"]
+    hostnic --> nat["Windows NAT: LabNAT"]
+    nat --> gateway["vEthernet (LabInternal)\n192.168.100.1/24"]
+    gateway --> switch["Hyper-V Internal Switch\nLabInternal"]
+    switch --> ubuntu["Ubuntu Server VM\n192.168.100.10"]
+    switch --> winvm["Optional Windows VM\n192.168.100.20"]
+    switch --> future["Future lab VMs\n192.168.100.30+"]
+
+    tailscale["Tailscale remote device"] -. secure remote access .-> hostnic
+    tailscale -. optional subnet route .-> switch
+
+    classDef host fill:#e8f1ff,stroke:#2563eb,color:#10203f;
+    classDef vm fill:#eef8e8,stroke:#3f7d20,color:#132;
+    classDef net fill:#fff7df,stroke:#b7791f,color:#321;
+    classDef remote fill:#f2e8ff,stroke:#7e22ce,color:#241137;
+    class internet,router,nat,gateway,switch,hostnic net;
+    class ubuntu,winvm,future vm;
+    class tailscale remote;

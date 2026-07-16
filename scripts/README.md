@@ -39,3 +39,11 @@ Apply Windows host baseline settings and enable Remote Desktop scoped to Tailsca
 ```powershell
 .\Deploy.ps1 -Stage System -EnableRemoteDesktop
 ```
+
+Create Hyper-V folders, enable Hyper-V, create the internal switch, assign the host gateway IP, and configure NAT:
+
+```powershell
+.\Deploy.ps1 -Stage HyperV
+```
+
+If Hyper-V is enabled for the first time, restart Windows before creating VMs.
