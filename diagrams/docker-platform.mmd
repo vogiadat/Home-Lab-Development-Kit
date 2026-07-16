@@ -1,0 +1,18 @@
+flowchart TB
+    ubuntu["Ubuntu Server VM\n192.168.100.10"] --> engine["Docker Engine"]
+    engine --> compose["Docker Compose\n/opt/homelab/compose.yaml"]
+    compose --> nginx["nginx\nreverse proxy placeholder"]
+    compose --> postgres["postgres\npersistent data"]
+    compose --> redis["redis\ncache"]
+    postgres --> pgdata["/opt/homelab/data/postgres"]
+    redis --> redisdata["/opt/homelab/data/redis"]
+    nginx --> nginxdata["/opt/homelab/data/nginx"]
+    host["Windows Host"] -. ssh/http .-> ubuntu
+    tailscale["Tailscale later"] -. remote access .-> host
+
+    classDef host fill:#e8f1ff,stroke:#2563eb,color:#10203f;
+    classDef docker fill:#eef8e8,stroke:#3f7d20,color:#132;
+    classDef data fill:#fff7df,stroke:#b7791f,color:#321;
+    class ubuntu,host,tailscale host;
+    class engine,compose,nginx,postgres,redis docker;
+    class pgdata,redisdata,nginxdata data;

@@ -55,3 +55,11 @@ Create the Ubuntu Server VM from the configured ISO:
 ```
 
 Before running this stage, download the Ubuntu Server ISO and make sure `UbuntuVM.IsoPath` in `Config/HomeLab.config.psd1` points to the correct file.
+
+Ubuntu-side scripts are stored under:
+
+```text
+scripts/Ubuntu/
+```
+
+Run them inside the Ubuntu VM, not on the Windows host.

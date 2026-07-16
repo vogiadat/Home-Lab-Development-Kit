@@ -7,6 +7,7 @@ Planned diagrams:
 - `overall-architecture.drawio`
 - `diy-cooling.drawio`
 - `diy-cooling.mmd`
+- `docker-platform.mmd`
 - `hyper-v-nat.drawio`
 - `hyper-v-nat.mmd`
 - `ubuntu-vm.mmd`
