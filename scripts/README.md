@@ -63,3 +63,10 @@ scripts/Ubuntu/
 ```
 
 Run them inside the Ubuntu VM, not on the Windows host.
+
+Print Tailscale subnet router guidance and optionally restrict RDP firewall rules to Tailscale:
+
+```powershell
+.\Deploy.ps1 -Stage Tailscale
+.\Deploy.ps1 -Stage Tailscale -EnableRemoteDesktop
+```

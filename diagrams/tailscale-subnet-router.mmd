@@ -1,0 +1,20 @@
+flowchart TB
+    remote["Remote laptop / phone"] --> tsmesh["Tailscale mesh VPN"]
+    tsmesh --> host["Windows host\nLAB-HOST\nTailscale IP 100.x.y.z"]
+    host --> rdp["RDP to host\nFirewall: 100.64.0.0/10 only"]
+    host --> route["Advertised subnet route\n192.168.100.0/24"]
+    route --> switch["Hyper-V Internal Switch\nLabInternal"]
+    switch --> ubuntu["Ubuntu VM\n192.168.100.10"]
+    ubuntu --> ssh["SSH / Docker services"]
+
+    admin["Tailscale admin console"] -. approve route .-> route
+    router["Home router"] -. no port forwarding .-> host
+
+    classDef remote fill:#f2e8ff,stroke:#7e22ce,color:#241137;
+    classDef host fill:#e8f1ff,stroke:#2563eb,color:#10203f;
+    classDef lab fill:#eef8e8,stroke:#3f7d20,color:#132;
+    classDef warn fill:#fff7df,stroke:#b7791f,color:#321;
+    class remote,tsmesh,admin remote;
+    class host,rdp,route host;
+    class switch,ubuntu,ssh lab;
+    class router warn;

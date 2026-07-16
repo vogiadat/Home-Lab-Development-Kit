@@ -75,6 +75,16 @@ switch ($Stage) {
     'VM' {
         Invoke-Script -RelativePath 'Modules/03-VM/New-UbuntuVM.ps1' -ArgumentList @($Config)
     }
+    'Tailscale' {
+        if ($EnableRemoteDesktop) {
+            Invoke-Script -RelativePath 'Modules/04-Tailscale/Set-RdpFirewallForTailscale.ps1'
+        }
+        else {
+            Write-Host 'Remote Desktop firewall was not changed. Re-run with -EnableRemoteDesktop if needed.'
+        }
+
+        Invoke-Script -RelativePath 'Modules/04-Tailscale/Show-SubnetRouterCommand.ps1' -ArgumentList @($Config)
+    }
     default {
         Write-Warning "Stage '$Stage' is reserved for a future implementation sprint."
     }

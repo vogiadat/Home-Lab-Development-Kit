@@ -12,6 +12,7 @@ Planned diagrams:
 - `hyper-v-nat.mmd`
 - `ubuntu-vm.mmd`
 - `tailscale-subnet-router.drawio`
+- `tailscale-subnet-router.mmd`
 - `operations-flow.drawio`
 
 Rendered images should be exported to `assets/images/`.
