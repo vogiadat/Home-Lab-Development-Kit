@@ -21,3 +21,21 @@ scripts/
 ## Usage
 
 Run PowerShell as Administrator before executing host configuration or Hyper-V scripts.
+
+Check configuration:
+
+```powershell
+.\Deploy.ps1 -Stage Check
+```
+
+Apply Windows host baseline settings:
+
+```powershell
+.\Deploy.ps1 -Stage System
+```
+
+Apply Windows host baseline settings and enable Remote Desktop scoped to Tailscale:
+
+```powershell
+.\Deploy.ps1 -Stage System -EnableRemoteDesktop
+```
