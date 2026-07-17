@@ -23,6 +23,8 @@ Use this checklist before publishing a tagged release.
 ## Scripts
 
 - [ ] PowerShell parser validation passes in GitHub Actions.
+- [ ] Windows validation checklist is completed.
+- [ ] Ubuntu validation checklist is completed.
 - [ ] `Deploy.ps1 -Stage Check` runs on Windows.
 - [ ] `Deploy.ps1 -Stage System` is reviewed before use.
 - [ ] `Deploy.ps1 -Stage HyperV` is reviewed before use.

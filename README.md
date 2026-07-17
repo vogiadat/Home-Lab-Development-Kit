@@ -131,6 +131,12 @@ Run local repository validation:
 
 GitHub Actions also validates shell scripts, required files, Mermaid sources, and PowerShell parser syntax.
 
+Manual validation on real target systems is tracked in:
+
+- [docs/TEST_PLAN.md](docs/TEST_PLAN.md)
+- [templates/windows-validation-checklist.md](templates/windows-validation-checklist.md)
+- [templates/ubuntu-validation-checklist.md](templates/ubuntu-validation-checklist.md)
+
 ## License
 
 This project is licensed under the MIT License.
