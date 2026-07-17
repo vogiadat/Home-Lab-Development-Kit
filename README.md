@@ -98,11 +98,12 @@ Before publishing the GitHub Release:
 Pushing a version tag triggers the release workflow:
 
 ```bash
-git tag -a v1.0.0 -m "Home Lab Development Kit v1.0.0"
-git push origin v1.0.0
+./scripts/create-release-tag.sh v1.0.0
 ```
 
 The workflow builds the PDF and attaches it to the GitHub Release.
+
+See [docs/RELEASE_PROCESS.md](docs/RELEASE_PROCESS.md) for the full process, including how to handle an existing tag.
 
 ## Build PDF
 

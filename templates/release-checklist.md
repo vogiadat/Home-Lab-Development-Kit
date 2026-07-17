@@ -32,7 +32,7 @@ Use this checklist before publishing a tagged release.
 
 ## Release
 
-- [ ] Tag `v1.0.0` is created.
+- [ ] `./scripts/create-release-tag.sh v1.0.0` succeeds, or the `Release` workflow is run manually for an existing tag.
 - [ ] Release workflow succeeds.
 - [ ] GitHub Release is created automatically.
 - [ ] PDF artifact is attached automatically.
