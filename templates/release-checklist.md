@@ -9,6 +9,7 @@ Use this checklist before publishing a tagged release.
 - [ ] README roadmap reflects release status.
 - [ ] CHANGELOG includes the release entry.
 - [ ] Release notes are written.
+- [ ] Validate workflow succeeds.
 
 ## PDF
 
@@ -21,6 +22,7 @@ Use this checklist before publishing a tagged release.
 
 ## Scripts
 
+- [ ] PowerShell parser validation passes in GitHub Actions.
 - [ ] `Deploy.ps1 -Stage Check` runs on Windows.
 - [ ] `Deploy.ps1 -Stage System` is reviewed before use.
 - [ ] `Deploy.ps1 -Stage HyperV` is reviewed before use.

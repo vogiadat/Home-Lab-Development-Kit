@@ -121,6 +121,16 @@ The generated PDF is written to:
 release/Home-Lab-Development-Kit-v1.0.pdf
 ```
 
+## Validate
+
+Run local repository validation:
+
+```bash
+./scripts/validate-repo.sh
+```
+
+GitHub Actions also validates shell scripts, required files, Mermaid sources, and PowerShell parser syntax.
+
 ## License
 
 This project is licensed under the MIT License.

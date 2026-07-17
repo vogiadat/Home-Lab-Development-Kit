@@ -1,0 +1,55 @@
+name: Validate
+
+on:
+  pull_request:
+  push:
+    branches:
+      - main
+    paths:
+      - '.github/workflows/**'
+      - 'docs/**'
+      - 'scripts/**'
+      - 'diagrams/**'
+      - 'templates/**'
+      - 'README.md'
+      - 'CHANGELOG.md'
+
+jobs:
+  validate-repo:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Validate repository structure and shell scripts
+        run: |
+          ./scripts/validate-repo.sh
+
+  validate-powershell:
+    runs-on: windows-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Parse PowerShell scripts
+        shell: pwsh
+        run: |
+          $ErrorActionPreference = 'Stop'
+          $files = Get-ChildItem -Path scripts -Filter *.ps1 -Recurse
+          foreach ($file in $files) {
+            Write-Host "Parsing $($file.FullName)"
+            $tokens = $null
+            $errors = $null
+            [System.Management.Automation.Language.Parser]::ParseFile($file.FullName, [ref]$tokens, [ref]$errors) | Out-Null
+            if ($errors.Count -gt 0) {
+              $errors | Format-List | Out-String | Write-Error
+            }
+          }
+
+      - name: Load PowerShell data file
+        shell: pwsh
+        run: |
+          $ErrorActionPreference = 'Stop'
+          Import-PowerShellDataFile -Path scripts/Config/HomeLab.config.psd1 | Out-Null
