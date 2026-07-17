@@ -93,6 +93,17 @@ Before publishing the GitHub Release:
 - Create the `v1.0.0` tag.
 - Attach the PDF to the GitHub Release.
 
+## Create Release
+
+Pushing a version tag triggers the release workflow:
+
+```bash
+git tag -a v1.0.0 -m "Home Lab Development Kit v1.0.0"
+git push origin v1.0.0
+```
+
+The workflow builds the PDF and attaches it to the GitHub Release.
+
 ## Build PDF
 
 Install Pandoc, XeLaTeX, Node.js, and Mermaid CLI, then run:

@@ -33,6 +33,7 @@ Use this checklist before publishing a tagged release.
 ## Release
 
 - [ ] Tag `v1.0.0` is created.
-- [ ] GitHub Release is created.
-- [ ] PDF artifact is attached.
+- [ ] Release workflow succeeds.
+- [ ] GitHub Release is created automatically.
+- [ ] PDF artifact is attached automatically.
 - [ ] Known limitations are included in the release notes.

@@ -1,0 +1,79 @@
+name: Release
+
+on:
+  push:
+    tags:
+      - 'v*'
+  workflow_dispatch:
+    inputs:
+      tag:
+        description: 'Release tag, for example v1.0.0'
+        required: true
+        type: string
+
+permissions:
+  contents: write
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event.inputs.tag || github.ref }}
+
+      - name: Resolve release metadata
+        id: release_meta
+        run: |
+          TAG="${{ github.event.inputs.tag || github.ref_name }}"
+          VERSION="${TAG#v}"
+          MINOR_VERSION="$(echo "${VERSION}" | awk -F. '{print $1 "." $2}')"
+          NOTES_FILE="docs/RELEASE_NOTES_v${MINOR_VERSION}.md"
+
+          if [ ! -f "${NOTES_FILE}" ]; then
+            echo "Release notes file not found: ${NOTES_FILE}" >&2
+            exit 1
+          fi
+
+          echo "tag=${TAG}" >> "$GITHUB_OUTPUT"
+          echo "version=${VERSION}" >> "$GITHUB_OUTPUT"
+          echo "notes_file=${NOTES_FILE}" >> "$GITHUB_OUTPUT"
+          echo "pdf_file=release/Home-Lab-Development-Kit-v${VERSION}.pdf" >> "$GITHUB_OUTPUT"
+
+      - name: Install Pandoc and LaTeX
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y pandoc texlive-xetex texlive-fonts-recommended texlive-latex-recommended texlive-latex-extra fonts-dejavu
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Install Mermaid CLI
+        run: |
+          npm install -g @mermaid-js/mermaid-cli
+
+      - name: Render diagrams
+        run: |
+          ./scripts/render-diagrams.sh
+
+      - name: Build PDF
+        run: |
+          ./scripts/build-pdf.sh
+
+      - name: Rename PDF for tag
+        run: |
+          cp release/Home-Lab-Development-Kit-v1.0.pdf "${{ steps.release_meta.outputs.pdf_file }}"
+
+      - name: Create GitHub Release
+        uses: softprops/action-gh-release@v2
+        with:
+          tag_name: ${{ steps.release_meta.outputs.tag }}
+          name: Home Lab Development Kit ${{ steps.release_meta.outputs.tag }}
+          body_path: ${{ steps.release_meta.outputs.notes_file }}
+          files: ${{ steps.release_meta.outputs.pdf_file }}
+          draft: false
+          prerelease: false

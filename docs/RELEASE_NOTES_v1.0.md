@@ -77,4 +77,6 @@ Ubuntu VM:
 2. Download and visually review the PDF artifact.
 3. Test key scripts on the target machine.
 4. Create tag `v1.0.0`.
-5. Attach the PDF artifact to the GitHub Release.
+5. Let the release workflow create the GitHub Release and attach the PDF artifact.
+
+If the tag already existed before the release workflow was added, run the `Release` workflow manually from GitHub Actions and provide `v1.0.0` as the tag input.
