@@ -80,25 +80,25 @@ The deployment scripts are designed to be modular and repeatable. The project in
 - [x] Add editable architecture diagrams
 - [x] Add rendered diagram assets
 - [x] Add PDF build pipeline
-- [ ] Publish v1.0 release artifact
+- [x] Publish v1.0 release artifact
 
 ## Release Status
 
-v1.0.0 is release-prep ready. The manual source, scripts, diagrams, templates, and PDF workflow are present.
+v1.0.x is released. The manual source, scripts, diagrams, templates, PDF workflow, and release automation are present.
 
-Before publishing the GitHub Release:
+Before using the kit on a real host:
 
 - Review the generated PDF artifact.
 - Validate scripts on the target Windows and Ubuntu systems.
-- Create the `v1.0.0` tag.
-- Attach the PDF to the GitHub Release.
+- Follow [docs/TEST_PLAN.md](docs/TEST_PLAN.md).
+- Track host-specific findings before cutting a future `v1.1.0`.
 
 ## Create Release
 
 Pushing a version tag triggers the release workflow:
 
 ```bash
-./scripts/create-release-tag.sh v1.0.0
+./scripts/create-release-tag.sh v1.0.1
 ```
 
 The workflow builds the PDF and attaches it to the GitHub Release.
