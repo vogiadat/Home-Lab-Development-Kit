@@ -38,8 +38,9 @@ pandoc \
   "${COMBINED_MD}" \
   --from markdown+yaml_metadata_block \
   --pdf-engine=xelatex \
+  --top-level-division=chapter \
   --toc \
-  --toc-depth=2 \
+  --toc-depth=1 \
   --number-sections \
   --include-in-header="${ROOT_DIR}/docs/pdf-style.tex" \
   -o "${OUTPUT_PDF}"

@@ -3,6 +3,7 @@
 \usepackage{xcolor}
 \usepackage{framed}
 \usepackage{fvextra}
+\usepackage{tocloft}
 
 \definecolor{HomeLabBlue}{HTML}{1F5C99}
 \definecolor{HomeLabGray}{HTML}{4B5563}
@@ -13,6 +14,14 @@
 \rhead{\textcolor{HomeLabGray}{Deployment Manual v1.0}}
 \cfoot{\thepage}
 \renewcommand{\headrulewidth}{0.4pt}
+
+\setlength{\cftchapnumwidth}{3.2em}
+\setlength{\cftsecnumwidth}{4.2em}
+\setlength{\cftsubsecnumwidth}{5.2em}
+\renewcommand{\cftchapfont}{\bfseries\color{HomeLabBlue}}
+\renewcommand{\cftchappagefont}{\bfseries\color{HomeLabBlue}}
+\renewcommand{\cftsecfont}{\color{HomeLabGray}}
+\renewcommand{\cftsecpagefont}{\color{HomeLabGray}}
 
 \titleformat{\chapter}
   {\normalfont\huge\bfseries\color{HomeLabBlue}}

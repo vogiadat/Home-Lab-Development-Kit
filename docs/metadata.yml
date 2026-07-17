@@ -5,18 +5,19 @@ author: "vogiadat"
 date: "Version 1.0"
 lang: en
 papersize: a4
+documentclass: report
 geometry:
   - top=22mm
   - bottom=24mm
   - left=22mm
   - right=22mm
 fontsize: 10.5pt
-mainfont: "DejaVu Serif"
+mainfont: "DejaVu Sans"
 monofont: "DejaVu Sans Mono"
 colorlinks: true
 linkcolor: blue
 urlcolor: blue
 toc: true
-toc-depth: 2
+toc-depth: 1
 numbersections: true
 ---
