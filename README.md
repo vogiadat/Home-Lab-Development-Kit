@@ -74,13 +74,24 @@ The deployment scripts are designed to be modular and repeatable. The project in
 
 ## Roadmap
 
-- [ ] Bootstrap repository structure
-- [ ] Write Deployment Manual v1.0
-- [ ] Add PowerShell deployment framework
-- [ ] Add editable architecture diagrams
-- [ ] Add rendered diagram assets
-- [ ] Add PDF build pipeline
+- [x] Bootstrap repository structure
+- [x] Write Deployment Manual v1.0
+- [x] Add PowerShell deployment framework
+- [x] Add editable architecture diagrams
+- [x] Add rendered diagram assets
+- [x] Add PDF build pipeline
 - [ ] Publish v1.0 release artifact
+
+## Release Status
+
+v1.0.0 is release-prep ready. The manual source, scripts, diagrams, templates, and PDF workflow are present.
+
+Before publishing the GitHub Release:
+
+- Review the generated PDF artifact.
+- Validate scripts on the target Windows and Ubuntu systems.
+- Create the `v1.0.0` tag.
+- Attach the PDF to the GitHub Release.
 
 ## Build PDF
 
