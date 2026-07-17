@@ -17,14 +17,15 @@ for diagram in "${ROOT_DIR}"/diagrams/*.mmd; do
   [ -e "${diagram}" ] || continue
 
   name="$(basename "${diagram}" .mmd)"
-  output="${OUTPUT_DIR}/${name}.svg"
+  output="${OUTPUT_DIR}/${name}.png"
 
   echo "Rendering ${diagram} -> ${output}"
   mmdc \
     --input "${diagram}" \
     --output "${output}" \
     --puppeteerConfigFile "${PUPPETEER_CONFIG}" \
-    --backgroundColor transparent
+    --backgroundColor white \
+    --scale 2
 done
 
 echo "Rendered diagrams to ${OUTPUT_DIR}"

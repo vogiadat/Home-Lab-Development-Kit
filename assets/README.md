@@ -8,7 +8,7 @@ Rendered Mermaid diagrams are generated into:
 assets/images/
 ```
 
-The generated SVG/PNG files are ignored by Git by default. They are produced by:
+The generated PNG files are ignored by Git by default. They are produced by:
 
 ```bash
 ./scripts/render-diagrams.sh

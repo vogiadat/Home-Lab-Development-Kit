@@ -10,7 +10,7 @@ Ubuntu Server is the primary workload environment for v1.0. Docker, Compose serv
 
 Diagram source: [`../diagrams/ubuntu-vm.mmd`](../diagrams/ubuntu-vm.mmd)
 
-![Ubuntu VM deployment flow](assets/images/ubuntu-vm.svg)
+![Ubuntu VM deployment flow](assets/images/ubuntu-vm.png)
 
 | Setting | Value |
 | --- | --- |
